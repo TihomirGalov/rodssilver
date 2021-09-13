@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+`{% load i18n static %}
+`
+    <!-- Open Content -->
+{% block content %}
+    <section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <img class="card-img img-fluid" src="{{ object.main_photo.url }}" alt="Card image cap" id="product-detail" style="width: 524px; height: 524px">
+                    </div>
+                    <div class="row">
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                                <i class="text-dark fas fa-chevron-left"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                        <!--Start Carousel Wrapper-->
+                        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+                            <!--Start Slides-->
+                            <div class="carousel-inner product-links-wap" role="listbox">
+                                {% for page in pages %}
+                                <!--First slide-->
+                                <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                                    <div class="row">
+                                        {% for image in page %}
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="{{ image.image.url }}" alt="Product Image {{forloop.counter }}" style="width: 128px; height: 128px">
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <!--End Slides-->
+                        </div>
+                        <!--End Carousel Wrapper-->
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="next">
+                                <i class="text-dark fas fa-chevron-right"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="h2">{{ object.title }}</h1>
+                            <p class="h3 py-2">{{ object.price }} лв.</p>
+
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6>{% trans "Brand:" %}</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong>Easy Wear</strong></p>
+                                </li>
+                            </ul>
+
+                            <h6>{% trans "Description:" %}</h6>
+                            <p>{{ object.description }}</p>
+
+
+                            <form action="/checkout/" method="GET">
+                                <input type="hidden" name="product-title" value='{{ object.title }}'>
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                            {% if object.variations %}
+                                            <li class="list-inline-item">{{ object.variations.name }} :
+                                                <input type="hidden" name="variation_value" id="variation_value">
+                                            </li>
+                                                {% for item_var in item_variations %}
+                                                <li class="list-inline-item"><span class="btn btn-success btn-variation">{{ item_var }}</span></li>
+                                                {% endfor %}
+                                            {% endif %}
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                            <li class="list-inline-item text-right">
+                                                {% trans 'Quantity' %}
+                                                <input type="hidden" name="product-quantity" id="product-quantity" value="1">
+                                            </li>
+                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
+                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">
+                                            {% trans "Buy" %}</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Close Content -->
+
+    <!-- Start Article -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-left p-2 pb-3">
+                <h4 style="text-align: center;">{% trans "Related Products" %}</h4>
+            </div>
+
+            <!--Start Carousel Wrapper-->
+            <div id="carousel-related-product" style="width: 100%;">
+                {% for product in related %}
+                <div class="p-2 pb-3" style="display: inline-block; width: 33%;">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0" >
+                            <img class="card-img rounded-0 img-fluid" style="width: 150px;height: 150px" src="{{ product.main_photo.url}}">
+                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn btn-success text-white mt-2" href="/product/{{ product.slug   }}"><i class="far fa-eye"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">{{ product.title }}</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">{{ product.price }} лв.</p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End Article -->
+{% endblock %}
+
+
+    <!-- Start Footer -->
+{% block extrajavascript %}
+    <!-- Start Slider Script -->
+    <script>
+        var clicked = null;
+        $(document).ready(function () {
+            $('span.btn-success').click(function (){
+                $('#product-quantity').val( $('#var-value')[0].innerText)
+
+            })
+            $('span.btn-variation').click(function (){
+                if (clicked){
+                    clicked.css('background-color', '#1d242d')
+                }
+               $('#variation_value').val( $(this)[0].innerText)
+                $(this).css('background-color', '#1d242d')
+
+                clicked = $(this)
+
+
+            })
+
+        })
+    </script>
+    <!-- End Slider Script -->
+
+{% endblock %}
+
+</body>
+
+</html>

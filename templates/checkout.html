@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% load i18n static %}
+
+{% block content %}
+
+<main >
+    <div class="container wow fadeIn">
+        <h2 class="my-5 h2 text-center">{% trans 'Checkout form' %}</h2>
+        <div class="row">
+            <div class="col-md-8 mb-4">
+                <div class="card">
+                    <form method="POST" class="card-body" action="/finish-order/">
+                        {% csrf_token %}
+                        <div class='hideable_shipping_form'>
+
+                            <div class="md-form mb-5">
+                                <label for="street_address">{% trans 'Shipping address' %}</label>
+                                <input type='text' placeholder='Улица, номер, блок ' id='street_address' name='street_address' class='form-control' required oninvalid="this.setCustomValidity('Моля въведете адрес')" oninput="setCustomValidity('')"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 mb-4" style="width: 50%">
+                                    <label for="city">{% trans 'City' %}</label>
+                                    <input type='text' placeholder='{% trans "City" %}' id='city' name='city' class='form-control' required oninvalid="this.setCustomValidity('Моля въведете населено място за доставка')" oninput="setCustomValidity('')"/>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4" style="width: 50%">
+                                    <label for="zip">{% trans 'Zip' %}</label>
+                                    <input type='text' placeholder='{% trans "ZIP" %}' id='zip' name='zip' class='form-control' required oninvalid="this.setCustomValidity('Моля въведете пощенски код')" oninput="setCustomValidity('')"/>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 mb-4" style="width: 50%">
+                                    <label for="city">{% trans 'Contact' %}</label>
+                                    <input type='text' placeholder='{% trans "Contact" %}' id='contact' name='contact' class='form-control' required oninvalid="this.setCustomValidity('Моля въведете контакт за връзка')" oninput="setCustomValidity('')"/>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4" style="width: 50%">
+                                    <label for="zip">{% trans 'Phone' %}</label>
+                                    <input type='text' placeholder='{% trans "Phone" %}' id='Phone' name='phone' class='form-control' required oninvalid="this.setCustomValidity('Моля въведете телефонен номер')" oninput="setCustomValidity('')"/>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <label>Метод на плащане: В брой</label>
+
+                        <input type="hidden" name="title" value='{{ product.title }}'>
+                        <input type="hidden" name="quantity" value='{{ product.quantity }}'>
+                        <input type="hidden" name="variation" value='{{ product.variation }}'>
+
+                        <hr class="mb-4">
+                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="finish">{% trans "Finish Order" %}</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+                {% include "order-snippet.html" %}
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-03 07:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: orders/admin.py:37 orders/admin.py:79
+msgid "Change Status"
+msgstr "Смени статус"
+
+#: orders/admin.py:48
+msgid "Status changed"
+msgstr "Статусът е сменен"
+
+#: orders/admin.py:83 orders/models.py:47 orders/models.py:52
+msgid "Order"
+msgstr "Поръчка"
+
+#: orders/forms.py:11 orders/models.py:14 orders/models.py:34
+msgid "Status"
+msgstr "Статус"
+
+#: orders/models.py:8 products/models.py:6 products/models.py:21
+#: products/models.py:55 products/models.py:68
+msgid "Title"
+msgstr "Име"
+
+#: orders/models.py:15
+msgid "Statuses"
+msgstr "Статуси"
+
+#: orders/models.py:19
+msgid "Street Address"
+msgstr "Улица и №"
+
+#: orders/models.py:20 templates/checkout.html:38 templates/checkout.html:39
+msgid "Phone"
+msgstr "тел. номер"
+
+#: orders/models.py:21 templates/base.html:83 templates/checkout.html:34
+#: templates/checkout.html:35
+msgid "Contact"
+msgstr "Контакт за връзка"
+
+#: orders/models.py:22
+msgid "ZIP code"
+msgstr "Пощенски код"
+
+#: orders/models.py:23 templates/checkout.html:23 templates/checkout.html:24
+msgid "City"
+msgstr "град / село"
+
+#: orders/models.py:29 orders/models.py:37
+msgid "Shipping Address"
+msgstr "Адрес за доставка"
+
+#: orders/models.py:30
+msgid "Shipping Addresses"
+msgstr "Адреси за доставка"
+
+#: orders/models.py:35
+msgid "Date"
+msgstr "Дата"
+
+#: orders/models.py:48
+msgid "Orders"
+msgstr "Поръчки"
+
+#: orders/models.py:53 products/models.py:38 products/models.py:56
+msgid "Item"
+msgstr "Продукт"
+
+#: orders/models.py:54 templates/shop-single.html:94
+msgid "Quantity"
+msgstr "Количество"
+
+#: orders/models.py:55 products/models.py:62 products/models.py:67
+msgid "Variation"
+msgstr "Вариация"
+
+#: orders/models.py:62
+msgid "Order Item"
+msgstr "Продукт в поръчката"
+
+#: orders/models.py:63
+msgid "Order Items"
+msgstr "Продукти в проъчката"
+
+#: orders/templates/admin/order/run_action.html:20
+msgid "Please correct the error below."
+msgstr "Моля поправете грешката"
+
+#: orders/templates/admin/order/run_action.html:20
+msgid "Please correct the errors below."
+msgstr "Моле поправете грешките"
+
+#: orders/templates/admin/order/run_action.html:42
+#, python-format
+msgid " %(title)s "
+msgstr " %(title)s "
+
+#: products/admin.py:13
+msgid "Total Products"
+msgstr "Общо продукти"
+
+#: products/models.py:16 products/models.py:24
+msgid "Category"
+msgstr "Категория"
+
+#: products/models.py:17 templates/shop.html:10
+msgid "Categories"
+msgstr "Категории"
+
+#: products/models.py:22
+msgid "Price"
+msgstr "Цена"
+
+#: products/models.py:23
+msgid "Description"
+msgstr "Описание"
+
+#: products/models.py:39
+msgid "Items"
+msgstr "Продукти"
+
+#: products/models.py:43 products/models.py:44 products/models.py:50
+msgid "Image"
+msgstr "Снимка"
+
+#: products/models.py:51
+msgid "Images"
+msgstr "Снимки"
+
+#: products/models.py:63
+msgid "Variations"
+msgstr "Вариации"
+
+#: products/models.py:74
+msgid "Item Variation"
+msgstr "Вариация за продукт"
+
+#: products/models.py:75
+msgid "Item Variations"
+msgstr "Вариации за продукт"
+
+#: templates/base.html:74
+msgid "Home"
+msgstr "Начало"
+
+#: templates/base.html:77
+msgid "About"
+msgstr "За нас"
+
+#: templates/base.html:80
+msgid "Shop"
+msgstr "Пазарувай"
+
+#: templates/checkout.html:9
+msgid "Checkout form"
+msgstr "Данни за поръчката"
+
+#: templates/checkout.html:18
+msgid "Shipping address"
+msgstr "Адрес на доставка"
+
+#: templates/checkout.html:27
+msgid "Zip"
+msgstr "Пощенски код"
+
+#: templates/checkout.html:28
+msgid "ZIP"
+msgstr "Пощенски код"
+
+#: templates/checkout.html:55
+msgid "Finish Order"
+msgstr "Завърши поръчката"
+
+#: templates/index.html:93
+msgid "Categories of The Month"
+msgstr "Категории на месеца"
+
+#: templates/index.html:105
+msgid "Go Shop"
+msgstr "Пазарувай"
+
+#: templates/index.html:119
+msgid "Featured Products"
+msgstr "Най - желани продукти"
+
+#: templates/order-snippet.html:6
+msgid "Your cart"
+msgstr "Вашата количка"
+
+#: templates/order-snippet.html:19
+msgid "Total with shipping"
+msgstr "Общо с доставка"
+
+#: templates/shop-single.html:64
+msgid "Brand:"
+msgstr "Марка:"
+
+#: templates/shop-single.html:71
+msgid "Description:"
+msgstr "Описание"
+
+#: templates/shop-single.html:106
+msgid "Buy"
+msgstr "Купи"
+
+#: templates/shop-single.html:123
+msgid "Related Products"
+msgstr "Подобни продукти"
+
+#: templates/shop.html:13
+msgid "All"
+msgstr "Всички"

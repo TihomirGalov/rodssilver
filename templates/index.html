@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% load i18n static %}
+
+
+
+<body>
+    <!-- Start Banner Hero -->
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('/static/banner_1.jpg')">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>Rod's</b> Silver</h1>
+                                <h3 class="h2">Вашият магазин за бижута</h3>
+                                <p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('/static/banner_2.jpg'); background-repeat: no-repeat, repeat; background-size: cover;">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                        </div>
+                      <!--  <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Огромна колекция от качествени бижута</h1>
+                                <h3 class="h2">Намерете перфектният подарък за близки и приятели</h3>
+                                <p>
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Repr in voluptate</h1>
+                                <h3 class="h2">Ullamco laboris nisi ut </h3>
+                                <p>
+                                    We bring you 100% free CSS templates for your websites. 
+                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+    <!-- End Banner Hero -->
+
+
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">{% trans "Categories of The Month" %}</h1>
+                <p>
+                    Нашите клинети избраха следните:
+                </p>
+            </div>
+        </div>
+        <div class="row">
+        {% for category in categories %}
+                <div class="col-12 col-md-4 p-5 mt-3" style="text-align: center">
+                    <a href="#"><img src="{{ category.photo }}" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3">{{category.title}}</h5>
+                    <p class="text-center"><a class="btn btn-success" href="/category/{{ category.slug }}">{% trans "Go Shop" %}</a></p>
+                </div>
+        {% endfor %}
+        </div>
+
+    </section>
+    <!-- End Categories of The Month -->
+
+
+    <!-- Start Featured Product -->
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">{% trans "Featured Products" %}</h1>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                {% for product in object_list %}
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="card h-100">
+                            <a href="/product/{{ product.slug}}/">
+                                <img src="{{ product.main_photo.url }}" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+
+                                    <li class="text-muted text-right">{{ product.price }} лв.</li>
+                                </ul>
+                                <a href="/product/{{ product.slug}}/" class="h2 text-decoration-none text-dark">{{ product.title }}</a>
+                                <p class="card-text">
+                                    {{ product.description }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- End Featured Product -->
+
+
+</body>
+{% endblock %}

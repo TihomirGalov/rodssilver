@@ -1,0 +1,24 @@
+.category-item {
+    color: #212934 !important;
+    text-decoration: none;
+}
+.list-group-item.active {
+    background-color: #1d242d;
+    border-color: #1d242d !important;
+}
+.list-group-item.active > a {
+    color: #fff !important;
+
+}
+.btn-success {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+.btn-success:hover {
+    background-color: #1d242d !important;
+    border-color: #1d242d !important;
+}
+
+.text-success {
+    color: #3e6765 !important;
+}
